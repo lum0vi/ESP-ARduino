@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF- 8">
+<link rel="stylesheet" href="css.css">
+    <meta name="viewport"          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    function waitForUpdates() {    $.ajax({
+        url: "{%url 'get'%}",
+        type: 'GET',
+        success: function(data) {
+            document.getElementById("temp1").textContent = data.num1;
+            document.getElementById("hudm1").textContent = data.num2;
+            document.getElementById("rain1").textContent = data.num3;
+            document.getElementById("MQ21").textContent = data.num4;
+            if(2 > 1){
+            document.getElementById("myElement").style.setProperty("linear-gradient", "#ffff, rgb(100, 15, 0)");
+            }
+                 },
+        error: function(xhr, status, error) {
+            console.log('Ошибка при ожидании обновлений данных');
+        }
+    });
+}
+setInterval(waitForUpdates, 500);
+
+</script>
+    <style>
+        *{margin: 0;
+padding:0;
+box-sizing: border-box;
+list-style-type: none;
+font-family: century gothic;
+
+}
+.app{
+  width: 400px;
+  height: 500px;
+  background: linear-gradient(#ffff, rgb(180, 175, 143));
+  position: absolute;
+  top: 300%;
+  left:38%;
+  border-radius: 25px;
+
+}
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgb(97, 63, 118);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body{background: rgb(10, 64, 85);}
+.name{
+  left:2%;
+  position: relative;
+}
+header nav ul li{
+  position: relative;
+  float: left;
+  padding: 20px;
+  left: -12%;
+
+  padding-left: 200;
+}
+nav ul li ul{
+  position: absolute;
+  left: 0;
+  width: 350px;
+  top:59px;
+
+  display: none;
+
+}
+nav ul li ul li{
+  width: 100%;
+  background-color: rgb(180, 175, 143);
+  border: 1px solid rgba(0, 0, 0, .1);
+  aligh-items:center;
+}
+
+
+
+nav ul li ul li ul{
+  left:180px;
+  padding: 0px;
+  top:0;
+}
+nav ul li:hover > ul{
+  display: initial;
+}
+
+.temp{
+  position: absolute;
+  top: 400%;
+  left: 39%;
+  font-family: century gothic;
+  font-size: 25px;
+}
+.hudm{
+  position: absolute;
+  top: 1000%;
+  left: 39%;
+  font-family: century gothic;
+  font-size: 25px;
+}
+.rain{
+  position: absolute;
+  top: 800%;
+  left: 39%;
+  font-family: century gothic;
+  font-size: 25px;
+}
+.MQ2{
+  position: absolute;
+  top: 600%;
+  left: 39%;
+  font-family: century gothic;
+  font-size: 25px;
+}
+
+.q3{
+  color:black;
+  text-decoration: none;
+}
+
+    </style>
+<title>Document</title>
+</head>
+<div class="hedder">
+
+</div>
+<header>
+  <a class="app">
+    <a class = "temp" >Температура1: <p id = "temp1"></p></a>
+    <a class = "hudm" >Температура2: <p id = "hudm1"></p></a>
+    <a class = "rain" >Температура3: <p id = "rain1"></p></a>
+    <a class = "MQ2" >Температура4: <p id = "MQ21"></p></a>
+      </a>
+
+<h1 class="name">Автоматическое управление</h1>
+  <nav>
+    <ul class="q">
+      <li>Описание проекта
+          <ul>
+            <li>
+            Проект представляет собой дистанционное управление машинкой.
+            Данное устройство способно отправлять данные на сервер, считывать данные и команды с сервера и выполнять их. С развитием данного проекта можно будет дистанционно управлить не только обычными машинками но и целыми автомобилями.
+            Устройство решает задачу автоматического контроля разного вида техники.
+            </li>
+          </ul>
+      </li>
+      <li>принцип работы
+        <ul>
+          <li>
+            Arduino UNO передаёт данные с датчиков по Serial к NodeMCU. Конечное устройство обработав данные передаёт их на сервер Django где они тоже обрабатываются и уже только потом выдётся команда(направление куда поехать) обратно к Arduino UNo
+        </ul>
+      </li>
+      <li>Схемы
+        <ul>
+            {% load static %}
+          <li><a href="http://172.20.10.4:8000/blok">Фото электрической схемы устройства</a></li>
+          <li><a href="http://172.20.10.4:8000/prch">Схема передачи данных</a></li>
+          <li><a href="http://172.20.10.4:8000/dr/">Дорожная карта</a></li>
+        </ul>
+      </li>
+        <li><div><a href="http://127.0.0.1:8000/komand/"class = "q3">Наши данные</a></div>
+        <ul>
+          <li><a href="http://172.20.10.4:8000/sviat">Шарыгин Святослав</a></li>
+          <li><a href="http://172.20.10.4:8000/daria">Дарья</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+<body>
+</body>
+

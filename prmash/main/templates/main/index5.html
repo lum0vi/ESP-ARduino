@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joystick Buttons</title>
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        height: 100vh;
+    }
+
+    .top {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        text-align: center;
+    }
+
+    .bottom {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        text-align: center;
+    }
+
+    .left {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        text-align: center;
+    }
+
+    .right {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="top">
+        <a href= "http://172.20.10.4:8000/vp/">вперёд</a>
+    </div>
+    <div class="left">
+        <a href= "http://172.20.10.4:8000/lev/">влево</a>
+    </div>
+    <div class="right">
+        <a href="http://172.20.10.4:8000/prav/">вправо</a>
+    </div>
+    <div class="bottom">
+        <a href="http://172.20.10.4:8000/naz/">назад</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="css.css">
+    <meta name="viewport"          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    function waitForUpdates() {    $.ajax({
+        url: "{%url 'get'%}",
+        type: 'GET',
+        success: function(data) {
+            document.getElementById("temp1").textContent = data.number1;
+            document.getElementById("hudm1").textContent = data.number2;
+            document.getElementById("rain1").textContent = data.number3;
+            document.getElementById("MQ21").textContent = data.number4;
+        },
+        error: function(xhr, status, error) {
+            console.log('Ошибка при ожидании обновлений данных');
+        }
+    });
+}
+setInterval(waitForUpdates, 500);
+
+</script>
+    <style>
+        *{margin: 0;
+padding:0;
+box-sizing: border-box;
+list-style-type: none;
+font-family: century gothic;
+
+}
+.app{
+  width: 385px;
+  height: 550px;
+  background: linear-gradient(#ffff, rgb(180, 175, 143));
+  position: absolute;
+  top: 300%;
+  left:35%;
+  border-radius: 25px;
+
+}
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgb(97, 63, 118);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body{background: rgb(10, 64, 85);}
+.name{
+  left:2%;
+  position: relative;
+  color:black;
+ padding: 20px;
+  text-decoration: none;
+}
+header nav ul li{
+  position: relative;
+  float: left;
+  padding: 20px;
+  left: -12%;
+
+  padding-left: 200;
+}
+nav ul li ul{
+  position: absolute;
+  left: 0;
+  width: 350px;
+  top:59px;
+
+  display: none;
+
+}
+nav ul li ul li{
+  width: 100%;
+  background-color: rgb(180, 175, 143);
+  border: 1px solid rgba(0, 0, 0, .1);
+  aligh-items:center;
+}
+
+
+
+nav ul li ul li ul{
+  left:180px;
+  padding: 0px;
+  top:0;
+}
+nav ul li:hover > ul{
+  display: initial;
+}
+
+.temp{
+  position: absolute;
+  top: 400%;
+  left: 39%;
+  font-family: century gothic;
+  font-size: 25px;
+}
+.hudm{
+  position: absolute;
+  top: 1000%;
+  left: 39%;
+  font-family: century gothic;
+  font-size: 25px;
+}
+.rain{
+  position: absolute;
+  top: 800%;
+  left: 39%;
+  font-family: century gothic;
+  font-size: 25px;
+}
+.MQ2{
+  position: absolute;
+  top: 600%;
+  left: 39%;
+  font-family: century gothic;
+  font-size: 25px;
+}
+
+.q3{
+  color:black;
+  text-decoration: none;
+}
+
+    </style>
+<title>Document</title>
+</head>
+<div class="hedder">
+
+</div>
+<header>
+  <a class="app">
+      {% load static %}
+      <img src="{% static 'my_app/ceme.jpg' %}" alt="My image">
+  </a>
+
+    <h1><a class="name" href="http://172.20.10.4:8000/home">Автоматическое управление</a></h1>
+</header>
+<body>
+</body>
+
+
+
